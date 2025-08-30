@@ -1,6 +1,4 @@
 import pytest
-from api.api_manager import ApiManager
-from utils.data_generator import DataGenerator
 
 
 class TestMoviesApi:
