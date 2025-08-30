@@ -2,7 +2,7 @@ import random
 import string
 from faker import Faker
 
-faker = Faker()
+faker = Faker("ru_RU")
 
 
 class DataGenerator:
@@ -37,3 +37,15 @@ class DataGenerator:
         random.shuffle(password)
 
         return ''.join(password)
+
+    @staticmethod
+    def generate_random_movie_data():
+        return {
+            "name": faker.sentence(nb_words=3),  # случайное название
+            "imageUrl": faker.image_url(),  # случайная ссылка на картинку
+            "price": random.randint(50, 500),  # цена от 50 до 500
+            "description": faker.text(max_nb_chars=200),  # описание
+            "location": random.choice(["SPB", "MSK"]),  # случайный город
+            "published": faker.boolean(),  # True/False
+            "genreId": random.randint(1, 5),  # случайный жанр (id от 1 до 5)
+        }
